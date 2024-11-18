@@ -1,0 +1,10 @@
+* {
+    font-family: Montserrat, serif;
+}
+
+input {
+    box-shadow: none !important;
+}
+button {
+    outline: none !important;
+}
