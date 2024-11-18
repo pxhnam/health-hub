@@ -1,10 +1,19 @@
 * {
-    font-family: Montserrat, serif;
+    /* font-family: Montserrat, serif; */
+    font-family: Poppins, sans-serif;
 }
 
+textarea,
 input {
     box-shadow: none !important;
 }
 button {
     outline: none !important;
+}
+
+input[type="checkbox"] {
+    accent-color: #00d9a5;
+}
+span.text-danger {
+    font-size: 15px;
 }
