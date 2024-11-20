@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@yield('title') - HealthHub</title>
 	<link rel="stylesheet" href="{{ asset('assets/client/css/maicons.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/client/css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/common/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/client/vendor/owl-carousel/css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/client/vendor/animate/animate.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/client/css/theme.css') }}">

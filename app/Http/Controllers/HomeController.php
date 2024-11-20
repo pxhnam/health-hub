@@ -11,4 +11,14 @@ class HomeController extends Controller
     {
         return view('client.pages.home.index');
     }
+    public function about()
+    {
+        $breadcrumb = [
+            ['name' => 'Home', 'route' => 'home'],
+            ['name' => 'About', 'current' => true]
+        ];
+        return view('client.pages.home.about', [
+            'breadcrumb' => $breadcrumb
+        ]);
+    }
 }

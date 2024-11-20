@@ -44,11 +44,8 @@
 					</div>
 					<div class="col-sm-10 col-md-6 py-2 wow fadeInLeft">
 						<label for="confirm-password">Confirm password</label>
-						<input type="password" id="confirm-password" name="confirm_password" class="form-control"
+						<input type="password" id="confirm-password" name="password_confirmation" class="form-control"
 							placeholder="Confirm your password...">
-						@error('confirm_password')
-							<span class="text-danger">{{ $message }}</span>
-						@enderror
 					</div>
 					<div class="col-sm-10 col-md-6 d-flex align-items-baseline py-1 wow fadeInDown user-select-none">
 						<input type="checkbox" id="terms" class="mr-2" />

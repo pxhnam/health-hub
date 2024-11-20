@@ -30,7 +30,9 @@
 			<form action="#">
 				<div class="input-group input-navbar">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+						<span class="input-group-text" id="icon-addon1">
+							<span class="mai-search"></span>
+						</span>
 					</div>
 					<input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
 						aria-describedby="icon-addon1">
@@ -49,9 +51,15 @@
 							<a class="nav-link" href="{{ route($item['route']) }}">{{ $item['name'] }}</a>
 						</li>
 					@endforeach
-
 					<li class="nav-item">
-						<a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login / Register</a>
+						@auth
+							<a href="javascript:void(0)" class="d-flex align-items-center gap-1">
+								Hi, {{ Auth::user()->name }}
+								<i class="mai-chevron-down"></i>
+							</a>
+						@else
+							<a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login / Register</a>
+						@endauth
 					</li>
 				</ul>
 			</div>

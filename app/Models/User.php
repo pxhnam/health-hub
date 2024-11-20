@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -32,6 +35,40 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'users_roles');
+    }
+
+    public function hasRole($roleName)
+    {
+        return $this->roles()->where('name', $roleName)->exists();
+    }
+
+    public function assignRole($roleName)
+    {
+        try {
+            $role = Role::where('name', $roleName)->firstOrFail();
+            if (!$this->roles->contains($role->id)) {
+                $this->roles()->attach($role->id);
+            }
+        } catch (Exception $ex) {
+            Log::error($ex->getMessage());
+        }
+    }
+
+    public function revokeRole($roleName)
+    {
+        try {
+            $role = Role::where('name', $roleName)->firstOrFail();
+            if ($this->roles->contains($role->id)) {
+                $this->roles()->detach($role->id);
+            }
+        } catch (Exception $ex) {
+            Log::error($ex->getMessage());
+        }
+    }
 
     /**
      * Get the attributes that should be cast.

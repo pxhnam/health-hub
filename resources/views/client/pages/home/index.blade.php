@@ -2,6 +2,13 @@
 @section('title', 'Trang Chủ')
 
 @push('styles')
+	<style>
+		@media (min-width: 768px) {
+			.custom-index {
+				margin-top: -50px;
+			}
+		}
+	</style>
 @endpush
 
 @section('content')

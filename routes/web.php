@@ -6,9 +6,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 
-Route::get('/about', function () {})->name('about');
+// Route::get('/about', function () {})->name('about');
 Route::get('/doctor', function () {})->name('doctor');
 Route::get('/news', function () {})->name('news');
 Route::get('/contact', function () {})->name('contact');

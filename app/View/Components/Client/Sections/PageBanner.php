@@ -1,23 +1,20 @@
 <?php
 
-namespace App\View\Components\Client\Cards;
+namespace App\View\Components\Client\Sections;
 
 use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Blog extends Component
+class PageBanner extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $tag = '',
-        public string $thumbnail = '',
-        public string $title = '',
-        public string $avatar = '',
-        public string $author = '',
-        public string $time = '',
+        public string $banner,
+        public array $breadcrumb,
+        public string $title,
     ) {
         //
     }
@@ -27,6 +24,6 @@ class Blog extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.client.cards.blog');
+        return view('components.client.sections.page-banner');
     }
 }
